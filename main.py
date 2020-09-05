@@ -1,15 +1,15 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-nxgraph = nx.read_weighted_edgelist(
-    "i2.txt", create_using=nx.Graph(), nodetype=int)
-pos = nx.spring_layout(nxgraph)
-nx.draw_networkx(nxgraph, with_labels=True, pos=pos,
-                 node_size=700, node_color="blue")
-nx.draw_networkx_edge_labels(
-    nxgraph, pos=pos, edge_labels=nx.get_edge_attributes(nxgraph, 'weight'))
-plt.axis("off")
-plt.show()
+# nxgraph = nx.read_weighted_edgelist(
+#     "i2.txt", create_using=nx.Graph(), nodetype=int)
+# pos = nx.spring_layout(nxgraph)
+# nx.draw_networkx(nxgraph, with_labels=True, pos=pos,
+#                  node_size=700, node_color="blue")
+# nx.draw_networkx_edge_labels(
+#     nxgraph, pos=pos, edge_labels=nx.get_edge_attributes(nxgraph, 'weight'))
+# plt.axis("off")
+# plt.show()
 
 
 def dijkstra(graph, start, end):
@@ -72,13 +72,22 @@ def dijkstra(graph, start, end):
 
 if __name__ == '__main__':
     graph = {
-        '1': {'2': 1, '4':  1},
-        '2': {'1': 1, '4':  1, '3':  2},
-        '3': {'2': 2, '4': 1, '5': 1, '6': 1},
-        '4': {'1':  1, '2':  1, '3': 1, '5': 2, '6': 15},
-        '5': {'3': 1, '4': 2, '6': 1},
-        '6': {'3': 1, '4': 15, '5': 1}
+        '1': {'2': 20, '3': 10, '6': 8},
+        '2': {'1': 20, '3': 7, '4': 1},
+        '3': {'1': 10, '2': 7, '4': 2, '6': 5},
+        '4': {'2': 1, '3': 2, '5': 6, '6': 4},
+        '5': {'4': 6, '6': 3},
+        '6': {'1': 8, '3': 5, '4': 4, '5': 3}
     }
-    path, distance = dijkstra(graph, start='1', end='6')
+    path, distance = dijkstra(graph, start='5', end='2')
     print(f'PUT: {path}')
-    print(f'NAJKRACA PUTANJA {distance}')
+    print(f'CENA {distance}')
+    nxgraph = nx.read_weighted_edgelist(
+        "graph.txt", create_using=nx.Graph(), nodetype=int)
+    pos = nx.spring_layout(nxgraph)
+    nx.draw_networkx(nxgraph, with_labels=True, pos=pos,
+                     node_size=700, node_color="blue")
+    nx.draw_networkx_edge_labels(
+        nxgraph, pos=pos, edge_labels=nx.get_edge_attributes(nxgraph, 'weight'))
+    plt.axis("off")
+    plt.show()
