@@ -1,16 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-# nxgraph = nx.read_weighted_edgelist(
-#     "i2.txt", create_using=nx.Graph(), nodetype=int)
-# pos = nx.spring_layout(nxgraph)
-# nx.draw_networkx(nxgraph, with_labels=True, pos=pos,
-#                  node_size=700, node_color="blue")
-# nx.draw_networkx_edge_labels(
-#     nxgraph, pos=pos, edge_labels=nx.get_edge_attributes(nxgraph, 'weight'))
-# plt.axis("off")
-# plt.show()
-
 
 def dijkstra(graph, start, end):
     # Prazan dict koji sadrzi distance
