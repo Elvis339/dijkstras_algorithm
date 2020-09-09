@@ -1,0 +1,15 @@
+Dijkstra alogiritam je algoritam za pronalazenje najkraceg puta izmedju dva cvora u ponderisanom grafu, osmislio ga je holandski inzenjer Edsger Dijkstra 1960-te godine.
+Big O notacija je: `O(|E|log|V|)`
+Gde je:
+    * V broj grana (ne sme biti negativna)
+    * E broj cvorova (ne sme biti negativna)
+
+Prednost Dijkstra algoritma je sto algoritam ne mora da istrazi sve ivice kako bi nasao najkraci put, sa druge strane mana je sto ne moze da radi sa negativnim vrednostima.
+
+Koristi pronalazenju najbrzeg puta za rutiranje paketa kroz neku mrezu, sat navigaciju, pronalazenje najkraceg puta u putnim mrezama itd...
+
+Primer: https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif
+
+1. Postavi sve cvorove na beskonacnu vrednosti
+2. Postavi pocetni cvor na 0
+3. Izabrati sledeci cvor na minimalnoj udaljenosti; ponoviti proračune susednih čvorova.

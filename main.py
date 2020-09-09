@@ -29,22 +29,24 @@ def dijkstra(graph, start, end):
         still_in = {node: distances[node]
                     for node in [node for node in
                                  to_assess if node not in sp_set]}
+        # print(still_in)
 
         # Nadji najblizi cvor -> trenutnog covora
         closest = min(still_in, key=distances.get)
+        print(f'distance {distances}')
+        print(f'najblizi {closest}')
 
         # Dodaj ga u kolekciju oznacenih cvorova
         sp_set.append(closest)
 
+        # print(f'kolekcija najblizih, {sp_set}')
         # Za svakog `komsiju` najblizeg covora
         for node in graph[closest]:
             # Ako mozemo naci kracu distancu
-            if distances[node] > distances[closest] +\
-                    graph[closest][node]:
+            if distances[node] > distances[closest] + graph[closest][node]:
 
                 # Dodaj kracu distancu
-                distances[node] = distances[closest] +\
-                    graph[closest][node]
+                distances[node] = distances[closest] + graph[closest][node]
 
                 predecessors[node] = closest
 
@@ -69,7 +71,7 @@ if __name__ == '__main__':
         '5': {'4': 6, '6': 3},
         '6': {'1': 8, '3': 5, '4': 4, '5': 3}
     }
-    path, distance = dijkstra(graph, start='5', end='2')
+    path, distance = dijkstra(graph, start='1', end='5')
     print(f'PUT: {path}')
     print(f'CENA {distance}')
     nxgraph = nx.read_weighted_edgelist(
